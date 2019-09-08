@@ -1,17 +1,32 @@
 import React from 'react';
 
-class SearchInput extends React.Component {
-     render () {
-        console.log(this.props.input)
-        return (
-            <form>
-                <input onChange={this.props.changeHandler} value={this.props.input}/>
-                <button onClick={this.props.doReq}>Search</button>
-            </form>
-        )
-    }
+// class SearchInput extends React.Component {
+//     constructor() {
+//         super();
+//         this.state = {
+//             input: ""
+//         };
+//     }
 
-}
+//     changeHandler = (event) => {
+//         console.log("change handler: ", event.target.value)
+//         // console.log(event.target.value)
+//         this.setState({input: event.target.value});
+//         console.log('search input: '+this.state.input);
+//         this.props.getSearch(this.state.input)
+//     }
+
+//     render () {
+//         console.log(this.state.input)
+//         return (
+//             <div>Search products
+//                 <input value={this.state.input} onChange={this.changeHandler}/>
+//             </div>
+//         )
+//     }
+
+
+// }
 
 class SearchResult extends React.Component {
     render() {
@@ -24,6 +39,7 @@ class SearchResult extends React.Component {
         })
         return(
             <div>
+                <p>List</p>
                 <ul>{results}</ul>
             </div>
             )
@@ -31,23 +47,19 @@ class SearchResult extends React.Component {
 }
 
 class Search extends React.Component {
-  // constructor() {
-  //   super();
+    render() {
+        return (
+            <div>
 
-  //   this.state = {
-  //       input : "",
-  //       searchresult : []
-  //   };
-  // }
-
-   render() {
-    return (
-      <div>
-        <SearchInput changeHandler={this.props.changeHandler} input={this.props.input} doReq={this.props.doReq}/>
-        <SearchResult searchresult={this.props.searchresult}/>
-      </div>
-    );
-  }
+                <SearchResult searchresult={this.props.searchresult}/>
+            </div>
+        );
+    }
 }
 
 export default Search;
+
+
+
+// <button onClick={this.props.doReq}>Search</button>
+ //<SearchInput getSearch={this.props.getSearch}/>
