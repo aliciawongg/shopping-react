@@ -1,32 +1,33 @@
 import React from 'react';
 
-// class SearchInput extends React.Component {
-//     constructor() {
-//         super();
-//         this.state = {
-//             input: ""
-//         };
-//     }
+class SearchInput extends React.Component {
+    constructor() {
+        super();
+        this.state = {
+            input: ""
+        };
+    }
 
-//     changeHandler = (event) => {
-//         console.log("change handler: ", event.target.value)
-//         // console.log(event.target.value)
-//         this.setState({input: event.target.value});
-//         console.log('search input: '+this.state.input);
-//         this.props.getSearch(this.state.input)
-//     }
+    changeHandler = e => {
+        //console.log("change handler: ", e.target.value)
+        const bana = e.target.value
+        console.log(bana)
+        this.setState({input: bana});
+        console.log('search input: '+this.state.input);
+        this.props.search(this.state.input)
+    }
 
-//     render () {
-//         console.log(this.state.input)
-//         return (
-//             <div>Search products
-//                 <input value={this.state.input} onChange={this.changeHandler}/>
-//             </div>
-//         )
-//     }
+    render () {
+        console.log(this.state.input)
+        return (
+            <div>Search products
+                <input value={this.state.input} onChange={this.changeHandler}/>
+            </div>
+        )
+    }
 
 
-// }
+}
 
 class SearchResult extends React.Component {
     render() {
@@ -50,7 +51,7 @@ class Search extends React.Component {
     render() {
         return (
             <div>
-
+                <SearchInput search={this.props.search}/>
                 <SearchResult searchresult={this.props.searchresult}/>
             </div>
         );
@@ -62,4 +63,3 @@ export default Search;
 
 
 // <button onClick={this.props.doReq}>Search</button>
- //<SearchInput getSearch={this.props.getSearch}/>

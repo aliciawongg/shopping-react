@@ -17,18 +17,16 @@ class App extends React.Component {
             // selectedproduct: "",
             //cart: []
         };
-    //this.changeHandler=this.changeHandler.bind(this)
+        //this.changeHandler=this.changeHandler.bind(this)
         //this.doReq=this.doReq.bind(this)
-        //this.getSearch=this.getSearch.bind(this)
+        this.search=this.search.bind(this)
     }
 
 
-
-
   //use componentdidmount here for ajax
-    //getSearch = (text) => {
-      componentDidMount() {
-        fetch('http://localhost:3000/products/')
+    search = (text) => {
+    //componentDidMount() {
+        fetch(`http://localhost:3000/products/${text}`)
             .then(res => res.json())
             .then(
                 (result) => {
@@ -81,7 +79,7 @@ class App extends React.Component {
             return (
                 <div>
                     <Search
-
+                        search={this.search}
                         searchresult={this.state.searchresult} />
                 </div>
             );
@@ -90,5 +88,3 @@ class App extends React.Component {
 }
 
 export default hot(module)(App);
-
-//getSearch={this.getSearch}
